@@ -22,6 +22,7 @@ from ._types import (
     VersionIterator,
     String,
     VersionPart,
+    Comparable,
 )
 
 # These types are required here because of circular imports
@@ -48,7 +49,7 @@ def _comparator(operator: Comparator) -> Comparator:
     return wrapper
 
 
-def _cmp(a, b):  # TODO: type hints
+def _cmp(a: Comparable, b: Comparable) -> int:
     """Return negative if a<b, zero if a==b, positive if a>b."""
     return (a > b) - (a < b)
 
